@@ -1,0 +1,14 @@
+{% extends 'includes/layout.njk' %}
+
+{% block main %}
+    <div class="main">
+        {% if page.current === 1 %}
+            {% include 'partial/parallax.njk' %}
+        {% endif %}
+
+        <div class="container">
+            {% include 'includes/recent-posts.njk' %}
+            {% include 'includes/pagination.njk' %}
+        </div>
+    </div>
+{% endblock %}
