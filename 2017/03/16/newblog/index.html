@@ -1,95 +1,138 @@
-{% extends 'includes/layout.njk' %}
-{% import 'macro/post.njk' as post_template %}
+<!DOCTYPE html>
+<html>
 
-{% block main %}
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>newblog | 徐丹丽的博客</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <div id="post">
-        <div class="container">
-            <div id="post-header" class="center">
-                <h1 class="center">{{ page.title or __('post.no_title')}}</h1>
-                <span class="post-date center">
-                    <i class="fa fa-calendar"></i>
-                    <time datetime="{{ page.date.toJSON() }}">
-                        {{ date(page.date) }}
-                    </time>
-                </span>
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
 
-                {% if theme.post.category %}
-                    <span class="post-categories">
-                   {% if page.categories and page.categories.length %}
-                       <span class="post-category">
-                              &nbsp; | &nbsp;
-                              <span class="post-meta-item-icon">
-                                <i class="fa fa-folder-o"></i>
-                              </span>
-                           {% for cat in page.categories.toArray() %}
-                               <span>
-                                  <a href="{{ url_for(cat.path) }}" rel="index">
-                                    <span>{{ cat.name }}</span>
-                                  </a>
-                                </span>
+  <meta name="generator" content="徐丹丽的博客">
 
-                               {% set cat_length = page.categories.length %}
-                               {% if cat_length > 1 and loop.index !== cat_length %}
-                                   {{ __('symbol.comma') }}
-                               {% endif %}
+  
+  
+  
 
-                           {% endfor %}
-                            </span>
-                   {% endif %}
-                </span>
-                {% endif %}
-
-                {% if page.photos %}
-                    <div class="post-gallery">
-                        <div id="lightgallery">
-                            {% for photo in page.photos %}
-
-                                <a href="{{ url_for(photo) }}">
-                                    <img class="post-photo" src="{{ url_for(photo) }}">
-                                </a>
-
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-            </div>
-
-            <article>
-                <div class="content">
-                    {{ post_template.render(page) }}
-                </div>
-            </article>
+  
+</head>
 
 
-            <div class="post-tags center">
-                {% for tag in page.tags.toArray() %}
-                    <span class="post-tag chip">
-                        <a href="{{ url_for(tag.path) }}">{{ tag.name }}</a>
-                   </span>
-                {% endfor %}
-            </div>
+<body class="post-template">
 
-
-            <div class="social-share" data-mobile-sites="weibo,qq,qzone,facebook,twitter">
-                <span id="share-to">{{ __('post.share_to') }}</span>
-            </div>
-
-            <div class="post-footer">
-                {% if page.prev %}
-                    <a class="left" href="{{ url_for(page.prev.path) }}" rel="prev" title="{{ page.prev.title }}">
-                        <i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i>
-                        <span>  {{ truncate( page.prev.title,{length:80}) }}</span>
-                    </a>
-                {% endif %}
-                {% if page.next %}
-                    <a class="right" href="{{ url_for(page.next.path) }}" rel="next" title="{{ page.next.title }}">
-                        {{ truncate( trim(page.next.title),{length:60}) }}<i
-                                class="fa fa-arrow-circle-right fa-3x "></i>
-                    </a>
-                {% endif %}
-            </div>
+  <header class="site-head"  style="background-image: url(//blog.ghost.org/content/images/2013/Nov/cover.png)" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="//blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">徐丹丽的博客</h1>
+            <h2 class="blog-description"></h2>
         </div>
     </div>
+</header>
+  
 
-{% endblock %}
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2017-03-16T13:59:05.000Z" itemprop="datePublished">
+          2017-03-16
+      </time>
+    
+    
+    | 
+    <a href='/tags/部署/'>部署</a>
+    
+    
+</span>
+    <h1 class="post-title">newblog</h1>
+    <section class="post-content">
+      <h1 id="实验一-在Github上用Markdown创建技术博客"><a href="#实验一-在Github上用Markdown创建技术博客" class="headerlink" title="实验一 在Github上用Markdown创建技术博客"></a>实验一 在Github上用Markdown创建技术博客</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><h3 id="1、熟悉Github网站"><a href="#1、熟悉Github网站" class="headerlink" title="1、熟悉Github网站"></a>1、熟悉Github网站</h3><h3 id="2、掌握Markdown语法"><a href="#2、掌握Markdown语法" class="headerlink" title="2、掌握Markdown语法"></a>2、掌握Markdown语法</h3><h2 id="二、实验任务"><a href="#二、实验任务" class="headerlink" title="二、实验任务"></a>二、实验任务</h2><h3 id="1、注册Github账号"><a href="#1、注册Github账号" class="headerlink" title="1、注册Github账号"></a>1、注册Github账号</h3><p>​       账号：Xudanli2809</p>
+<h3 id="2、创建Gihub-Pages-repository"><a href="#2、创建Gihub-Pages-repository" class="headerlink" title="2、创建Gihub Pages repository"></a>2、创建Gihub Pages repository</h3><p>​       Repository名：x_d_l</p>
+<h3 id="3、发布第一篇博客"><a href="#3、发布第一篇博客" class="headerlink" title="3、发布第一篇博客"></a>3、发布第一篇博客</h3><h3 id="4、学习Markdown"><a href="#4、学习Markdown" class="headerlink" title="4、学习Markdown"></a>4、学习Markdown</h3><h3 id="5、利用Hexo生成博客并部署到Github"><a href="#5、利用Hexo生成博客并部署到Github" class="headerlink" title="5、利用Hexo生成博客并部署到Github"></a>5、利用Hexo生成博客并部署到Github</h3><h2 id="三、实验步骤与结果"><a href="#三、实验步骤与结果" class="headerlink" title="三、实验步骤与结果"></a>三、实验步骤与结果</h2><h3 id="1、注册Github账号-1"><a href="#1、注册Github账号-1" class="headerlink" title="1、注册Github账号"></a>1、注册Github账号</h3><p>​    账号：Xudanli2809</p>
+<h3 id="2、-创建Gihub-Pages-repository"><a href="#2、-创建Gihub-Pages-repository" class="headerlink" title="2、 创建Gihub Pages repository"></a>2、 创建Gihub Pages repository</h3><p>​    Repository名：x_d_l</p>
+<h3 id="3、-发布第一篇博客"><a href="#3、-发布第一篇博客" class="headerlink" title="3、 发布第一篇博客"></a>3、 发布第一篇博客</h3><p>​    共同协作如下图所示：<img src="http://p1.bqimg.com/4851/13906b251b2d82ef.png" alt="1"></p>
+<h3 id="4、-学习Markdown"><a href="#4、-学习Markdown" class="headerlink" title="4、 学习Markdown"></a>4、 学习Markdown</h3><h3 id="5、-利用Hexo生成博客并部署到Github"><a href="#5、-利用Hexo生成博客并部署到Github" class="headerlink" title="5、 利用Hexo生成博客并部署到Github"></a>5、 利用Hexo生成博客并部署到Github</h3><blockquote>
+<p>（1）安装node-v7.7.1-x86以及Git-2.12.0-32-bi</p>
+<p>（2）打开<a href="https://npm.taobao.org/" target="_blank" rel="external">https://npm.taobao.org/</a>，复制cpm指令。</p>
+<p>（3）Windows+R，输入cmd,调出窗口，输入之前复制的npm指令。</p>
+<p>（4）创建hexo目录，窗口输入cnpm install –g hexo-cli</p>
+<p>（5）路径定位到D盘DM文件下，输入hexoinit hexo，进入到hexo文件，输入cnpm install以完成相关配置。                              </p>
+<p>（6） 窗口输入hexo server，运行本地测试，打开<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>。</p>
+<p>（7）在github中创建一个repository，名称为Xudanli2809.github.io。修改hexo文件根目录下的_config.yml文件。</p>
+<p>（8）新建博客。输入hexo new testMyBlog 生成一片新的文章，将repository中的md文件复制到_posts文件夹下。</p>
+<p>（9）生成博客。窗口输入hexo generate 指令对原有Html文件进行重新生成；输入hexo server 本地预览，输入hexo deploy 指令将Html文件发布到Github Pages服务器中。</p>
+</blockquote>
+<h3 id="6、-实验结果"><a href="#6、-实验结果" class="headerlink" title="6、 实验结果"></a>6、 实验结果</h3><p>网址为<a href="https://xudanli2809.github.io/" target="_blank" rel="external">https://xudanli2809.github.io/</a></p>
+<p>结果如下图所示：</p>
+<p><img src="http://p1.bqimg.com/4851/d79c06927a381c24.png" alt="2"></p>
+<h2 id="四、实验小结"><a href="#四、实验小结" class="headerlink" title="四、实验小结"></a>四、实验小结</h2><p>通过学习github以及markdown语言，学会了如何创建自己的博客，也了解了关于markdown编辑器的一些知识。</p>
+<hr>
+<p>作者  徐丹丽 </p>
+<p>2017 年 03 月 13 日</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>水、</h4>
+    <p>A designer, developer and entrepreneur. Spends his time travelling the world with a bag of kites. Likes journalism and publishing platforms.</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2017/03/16/newblog/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/03/16/newblog/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2017/03/16/newblog/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/2017/03/16/hello-world/">
+        Hello World →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">徐丹丽的博客</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+
+
+
+</body>
+</html>
